@@ -56,7 +56,7 @@ def get_db():
 
 
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def home():
     return {
         "message": "Expense Tracker API Running"
