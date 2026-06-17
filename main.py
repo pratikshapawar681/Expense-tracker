@@ -1,4 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
@@ -27,6 +29,9 @@ from routes.report_routes import router as report_router
 
 
 app = FastAPI(title="Expense Tracker API")
+
+app.mount("/css", StaticFiles(directory="css"), name="css")
+app.mount("/js", StaticFiles(directory="js"), name="js")
 
 
 # CORS for Live Server HTML
@@ -58,9 +63,7 @@ def get_db():
 
 @app.api_route("/", methods=["GET", "HEAD"])
 def home():
-    return {
-        "message": "Expense Tracker API Running"
-    }
+    return FileResponse("login.html")
 
 
 
