@@ -30,10 +30,11 @@ from routes.report_routes import router as report_router
 app = FastAPI(title="Expense Tracker API")
 
 
-# CORS for Live Server HTML
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+    "https://expense-tracker-erip.onrender.com"
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
