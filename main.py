@@ -562,14 +562,6 @@ def dashboard(
     remaining = total_budget - total_expense
 
 
-    usage = 0
-
-    if total_budget > 0:
-        usage = (
-            total_expense / total_budget
-        ) * 100
-
-
 
     return {
 
@@ -581,7 +573,6 @@ def dashboard(
 
         "remaining": remaining,
 
-        "usage": round(usage,2),
 
         "expenses": expenses,
 
