@@ -33,8 +33,8 @@ app = FastAPI(title="Expense Tracker API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-    "https://expense-tracker-erip.onrender.com"
-],
+        "https://expensetrackerfrontend-p4ei.onrender.com"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
